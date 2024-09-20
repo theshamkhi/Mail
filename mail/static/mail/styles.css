@@ -1,0 +1,222 @@
+body {
+    font-family: Arial, sans-serif;
+    color: #000000;
+    background-image: url('/static/mail/cover.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow-y: hidden;
+}
+
+@media (max-width: 768px) {
+    .hide-on-small-screen {
+      display: none;
+    }
+}
+
+.container-log {
+    width: 400px;
+    margin: 0 auto;
+    margin-top: 140px;
+    margin-bottom: 10px;
+    padding: 30px;
+    background-color: transparent;
+    backdrop-filter: blur(7px);
+    border: 1px solid #959595;
+    border-radius: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.container-fluid {
+    backdrop-filter: blur(7px);
+}
+
+
+.emails-container {
+    position: relative;
+    padding-top: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    height: calc(100vh - 138px);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #333 rgba(255, 255, 255, 0.8);
+
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #333;
+        border-radius: 5px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 5px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .emails-container {
+        height: calc(100vh - 133px);
+        overflow-y: auto;
+    }
+}
+
+
+.email-box {
+    padding: 20px;
+    margin: 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: rgba(232, 232, 232, 0.8);
+    color: #333;
+    transition: transform 0.2s;
+}
+.email-box:hover {
+    transform: scale(1.02);
+}
+.email-box.unread {
+    background-color: rgb(255, 255, 255);
+    animation: glow 2.5s ease-in-out infinite;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+@keyframes glow {
+    0% {
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+    50% {
+        background-color: transparent;
+    }
+    100% {
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+}
+.email-box.unread .email-sender,
+.email-box.unread .email-subject,
+.email-box.unread .email-timestamp {
+    font-weight: bold;
+}
+.email-box.unread .email-timestamp {
+    color: #007BFF;
+}
+
+
+.compose-button {
+    border-radius: 50%;
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    background-color: #007BFF;
+    color: #fff;
+    width: 70px;
+    height: 70px;
+    font-size: 24px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
+    z-index: 9999;
+}
+.compose-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+}
+
+
+.nav-link {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.2s;
+}
+.nav-link.selected {
+    transform: scale(1.9);
+    color: #000000;
+}
+@media (max-width: 768px) {
+
+    .nav-link.selected {
+        transform: scale(1.3);
+    }
+}
+
+
+#outlog {
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+}
+#outlog:hover {
+    text-decoration: underline;
+}
+
+
+.bg-custom-color {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+
+#email-view {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    backdrop-filter: blur(20px);
+}
+
+
+#composeModal {
+    background-color: transparent;
+    backdrop-filter: blur(7px);
+}
+.modal-content {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 40px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    max-width: 500px;
+    backdrop-filter: blur(17px);
+}
+.modal-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+.close, .send, .reply, .archiv, .register, .logn {
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+    font-size: 15px;
+}
+
+
+#notification {
+    width: 300px;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    animation: slideAndFade 2.5s forwards ease-out;
+}
+
+@keyframes slideAndFade {
+    0% {
+        top: 50%;
+        opacity: 0;
+    }
+    10% {
+        top: 30%;
+        opacity: 1;
+    }
+    90% {
+        top: 30%;
+        opacity: 1;
+    }
+    100% {
+        top: 20px;
+        opacity: 0;
+    }
+}
